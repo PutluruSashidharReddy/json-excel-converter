@@ -8,6 +8,10 @@ import os
 app = Flask(__name__)
 CORS(app)  # This allows React to talk to Python
 
+@app.route('/', methods=['GET'])
+def home():
+    return "<h1>Backend is running successfully!</h1>"
+
 @app.route('/convert', methods=['POST'])
 def convert_json():
     if 'file' not in request.files:
